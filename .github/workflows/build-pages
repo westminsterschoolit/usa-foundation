@@ -1,46 +1,42 @@
-name: Deploy gh-pages (Custom Jekyll Build)
+name: Build and Deploy Jekyll Site
 
 on:
   push:
     branches:
-      - main
+      - main # or your default branch
 
 jobs:
-  deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          ruby-version: '3.3'
+          node-version: '20' # or your required node version
 
-      - name: Install Ruby dependencies (Custom Jekyll Gems)
-        run: |
-          gem install bundler
-          bundle config set --local path vendor/bundle
-          bundle install
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.10'
-
-      - name: Install Node.js dependencies
+      - name: Install NPM dependencies
         run: npm install
 
-      - name: Build website (Custom Jekyll)
-        run: bundle exec jekyll build
-
-      - name: Deploy on gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
+      - name: Set up Ruby and Gems
+        uses: ruby/setup-ruby@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          ruby-version: '3.0' # or your required Ruby version
+          bundler-cache: true
+
+      - name: Install Jekyll and dependencies
+        run: |
+          gem install jekyll -v 4.3.4
+          gem install bundler
+          bundle install
+
+      - name: Build Jekyll Site
+        run: jekyll build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
