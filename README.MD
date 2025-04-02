@@ -74,6 +74,29 @@ This is configured in a CNAME file in the root of the site and will have multipl
   ```
 - For troubleshooting, refer to the [Jekyll documentation](https://jekyllrb.com/docs/).
 
+### Continuous Deployment with GitHub Actions
+
+This repository is configured to use GitHub Actions for continuous deployment. There is no server architecture to maintain for the School. 
+
+When changes are pushed to the `main` branch, a GitHub Action is triggered to rebuild the site and publish it to the `gh-pages` branch.
+
+1. **Workflow File**  
+  The deployment process is defined in the `.github/workflows/main.yml` file.
+
+2. **Trigger**  
+  The workflow is triggered automatically on every push to the `main` branch. You can also trigger this manually from the actions panel. 
+
+3. **Build and Deploy**  
+  The workflow:
+  - Installs dependencies.
+  - Builds the Jekyll site.
+  - Deploys the generated `_site` directory to the `gh-pages` branch.
+
+4. **Live Site**  
+  The `gh-pages` branch is configured to serve the site via GitHub Pages. Changes pushed to `main` will be live after the workflow completes.
+
+For more details, refer to the workflow file in the `.github/workflows` directory.
+
 ### Configuring Vanilla-CookieConsent
 
 To add a cookie consent banner using [Vanilla CookieConsent](https://github.com/orestbida/cookieconsent):
