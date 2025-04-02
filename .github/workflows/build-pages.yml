@@ -27,7 +27,7 @@ jobs:
       - name: Set up Ruby and Gems
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # or your required Ruby version
+          ruby-version: '3.4' # or your required Ruby version
           bundler-cache: true
       - name: Install Jekyll and dependencies
         run: |
