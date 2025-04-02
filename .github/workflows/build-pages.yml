@@ -11,7 +11,7 @@ on:
         required: true
         default: 'warning'
       tags:
-        description: 'Run fitzArtBot manually'
+        description: 'Run  manually'
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
