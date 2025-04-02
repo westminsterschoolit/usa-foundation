@@ -6,7 +6,7 @@
 /* Define your global CSS variables, typically at the top of your CSS file or in :root */
 :root {
   /* Define the variable for the background image URL */
-  --bg-image-url: url('/assets/images/College-Garden.jpeg');
+  --bg-image-url: url('../../assets/images/College-Garden.jpeg');
   /* Optional: Define variables for overlay color/opacity if needed for text legibility */
   --bg-overlay-color: rgba(193, 92, 92, 0.3); /* Example: 50% red overlay */
 }
@@ -21,7 +21,7 @@ body {
   background-color: #07344e;
   color: #fff;
   background-image: linear-gradient(to bottom, rgba(7, 52, 78, 0.95), rgba(7, 52, 78, 0.95)),
-    url('/assets/images/New-Westminster-School-crest-blackwhite-600dpi.png'); /* Replace with the correct path */
+    url('../../assets/images/New-Westminster-School-crest-blackwhite-600dpi.png'); /* Replace with the correct path */
   background-size: auto 80%;
   background-position: center;
   background-repeat: no-repeat;
