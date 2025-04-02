@@ -1,4 +1,4 @@
-name: Build and Deploy Jekyll Site
+name: Custom Build and Deploy Jekyll Site
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # or your required node version
+          node-version: '18' # or your required node version
 
       - name: Install NPM dependencies
         run: npm install
@@ -37,6 +37,16 @@ jobs:
         run: jekyll build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: actions/deploy-pages@v2
         with:
-          folder: _site
+          artifact-name: github-pages
+          path: _site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
