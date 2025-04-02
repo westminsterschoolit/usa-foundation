@@ -3,6 +3,14 @@
 @import "bootstrap/scss/bootstrap";
 @import "@fontsource/roboto"; // Defaults to weight 400
 
+/* Define your global CSS variables, typically at the top of your CSS file or in :root */
+:root {
+  /* Define the variable for the background image URL */
+  --bg-image-url: url('/assets/images/College-Garden.jpeg');
+  /* Optional: Define variables for overlay color/opacity if needed for text legibility */
+  --bg-overlay-color: rgba(193, 92, 92, 0.3); /* Example: 50% red overlay */
+}
+
 $body-font-family: 'Roboto', sans-serif; /* Define a variable for the font family */
 
 body {
@@ -12,67 +20,59 @@ body {
 .main-message {
   background-color: #07344e;
   color: #fff;
-  background-image: 
-  linear-gradient(to bottom, rgba(7, 52, 78, 0.95), rgba(7, 52, 78, 0.95)), /* Gradient overlay matching the background color */
-  url('/assets/images/New-Westminster-School-crest-blackwhite-600dpi.png'); /* Replace with the correct path */
-  background-size: auto 80%; /* Scale the image to cover the entire container */
-  background-position: center; /* Center the image horizontally and vertically */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  height: 400; /* Set the height to fill the viewport (adjust as needed) */
-  width: 100%; /* Set the width to fill the container */
-  display: flex; /* Use flexbox for centering content */
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
+  background-image: linear-gradient(to bottom, rgba(7, 52, 78, 0.95), rgba(7, 52, 78, 0.95)),
+    url('/assets/images/New-Westminster-School-crest-blackwhite-600dpi.png'); /* Replace with the correct path */
+  background-size: auto 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px; /* Set the height (px or other unit) */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
 }
-/* Define your global CSS variables, typically at the top of your CSS file or in :root */
-:root {
-    /* Define the variable for the background image URL */
-    --bg-image-url: url('/assets/images/College-Garden.jpeg'); /* Replace with your image path */
-  
-    /* Optional: Define variables for overlay color/opacity if needed for text legibility */
-    --bg-overlay-color: rgba(0, 0, 0, 0.5); /* Example: 50% black overlay */
-}
-  
-  /* Custom class to apply the background styles */
-  .bg-fixed-image-container {
-    /* Use the CSS variable for the background image */
-    background-image: var(--bg-image-url);
-  
-    /* --- Styling for fixed, centered, covering background --- */
-  
-    /* Fix the background image relative to the viewport */
-    background-attachment: fixed;
-  
-    /* Center the background image horizontally and vertically */
-    background-position: center center;
-  
-    /* Do not repeat the image */
-    background-repeat: no-repeat;
-  
-    /* Scale the image to cover the entire container area */
-    /* Preserves aspect ratio, might crop the image */
-    background-size: cover;
-  
-    /* --- Optional Enhancements --- */
-  
-    /* Ensure the container has some height to show the background */
-    /* You might set this based on content, or use min-height */
-    /* min-height: 400px; */ /* Example minimum height */
-  
-    /* Add padding so content doesn't touch the edges (Bootstrap often adds this anyway) */
-    /* padding-top: 3rem; */
-    /* padding-bottom: 3rem; */
-  
-    /* Add a pseudo-element overlay for better text contrast (Optional) */
-    position: relative; /* Needed for absolute positioning of the pseudo-element */
-    z-index: 1; /* Ensure content is above the base background */
+
+/* Custom class to apply the background styles */
+.bg-fixed-image-container {
+  /* Use the CSS variable for the background image */
+  background-image: var(--bg-image-url);
+
+  /* --- Styling for fixed, centered, covering background --- */
+
+  /* Fix the background image relative to the viewport */
+  background-attachment: fixed;
+
+  /* Center the background image horizontally and vertically */
+  background-position: center center;
+
+  /* Do not repeat the image */
+  background-repeat: no-repeat;
+
+  /* Scale the image to cover the entire container area */
+  /* Preserves aspect ratio, might crop the image */
+  background-size: cover;
+
+  /* --- Optional Enhancements --- */
+
+  /* Ensure the container has some height to show the background */
+  /* You might set this based on content, or use min-height */
+  /* min-height: 400px; */ /* Example minimum height */
+
+  /* Add padding so content doesn't touch the edges (Bootstrap often adds this anyway) */
+  /* padding-top: 3rem; */
+  /* padding-bottom: 3rem; */
+
+  /* Add a pseudo-element overlay for better text contrast (Optional) */
+  position: relative; /* Needed for absolute positioning of the pseudo-element */
+  z-index: 1; /* Ensure content is above the base background */
+
   /* Add opacity to the background using a pseudo-element */
   &::before {
     content: '';
@@ -84,36 +84,32 @@ body {
     background-color: var(--bg-overlay-color, rgba(0, 0, 0, 0.9)); /* Default to 80% black overlay */
     z-index: -1; /* Place behind content */
   }
-  }
-  
+}
 
 .footer-link-dark {
-    color: #8f9295; /* Default dark text color */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+  color: #8f9295; /* Default dark text color */
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
 .footer-link-dark:hover,
 .footer-link-dark:active,
 .footer-link-dark.active {
-    color: #fff; /* Even darker text color on hover and active */
+  color: #fff; /* Even darker text color on hover and active */
 }
 
-  
-  
+.container-fluid {
+  border-radius: 0 !important; /* !important ensures your rule takes precedence */
+}
 
+.pale-pink-bg {
+  background-color: #f77e9cb3 !important; /* Pale pink background color */
+}
 
-  
-  
-  .container-fluid {
-    border-radius: 0 !important; /* !important ensures your rule takes precedence */
-  }
-  .pale-pink-bg {
-    background-color: #f77e9cb3 !important; /* Pale pink background color */
-  }
-  .bg-pink {
-    background-color: #dfbac4f0 !important; /* Pale pink background color */
-  }
-  .no-gutters {
-    margin-right: -14px !important;
-    margin-left: -14px !important;
+.bg-pink {
+  background-color: #dfbac4f0 !important; /* Pale pink background color */
+}
+
+.no-gutters {
+  margin-right: -14px !important;
+  margin-left: -14px !important;
 }
