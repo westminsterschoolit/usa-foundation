@@ -1,22 +1,21 @@
-name: Custom Build and Deploy Jekyll Site
+name: Jekyll Deploy
 
 on:
   push:
     branches:
-      - main # or your default branch
+      - master
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: GitHub Checkout
+        uses: actions/checkout@v3 # Use v3 for better compatibility
 
-      - name: Set up Node.js
+      - name: Set up Node.js v20
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # or your required node version
+          node-version: '20'
 
       - name: Install NPM dependencies
         run: npm install
@@ -24,28 +23,26 @@ jobs:
       - name: Set up Ruby and Gems
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4' # or your required Ruby version
+          ruby-version: '3.4' # Or your desired ruby version
           bundler-cache: true
 
       - name: Install Jekyll and dependencies
         run: |
-          gem install jekyll -v 4.3.4
+          gem install jekyll -v 4.3.4 # Or your desired jekyll version
           gem install bundler
           bundle install
 
       - name: Build Jekyll Site
-        run: bundle exec jekyll build
+        run: jekyll build -d docs # Build to the 'docs' directory
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v3
+        with:
+          artifact-name: github-pages
+          path: docs
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2 # Explicitly use v2
+        uses: actions/upload-artifact@v3
         with:
-          path: '_site'
-
-      - name: Deploy on gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          name: github-pages
+          path: docs
