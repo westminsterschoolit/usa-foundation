@@ -11,11 +11,7 @@ on:
         required: true
         default: 'warning'
       tags:
-        description: 'Run  manually'
-permissions:
-  id-token: write
-  contents: read
-  
+        description: 'Run  manually'  
 jobs:
   build:
     runs-on: ubuntu-latest
