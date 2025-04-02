@@ -34,7 +34,8 @@ jobs:
 
     - name: Install Jekyll and Bundler
       run: |
-        gem install bundler jekyll
+        gem install --user-install bundler jekyll
+        bundle config set --local path 'vendor/bundle'
         bundle install
 
     - name: Build Jekyll site
