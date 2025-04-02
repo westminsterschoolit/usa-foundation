@@ -1,0 +1,13 @@
+<section id="main-message">
+    <div class="container-fluid main-message py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    {% capture p1 %}{% include message.md %}{% endcapture %}
+                    {{ p1 | markdownify }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
