@@ -1,4 +1,4 @@
-name: Deploy gh-pages
+name: Deploy gh-pages (Custom Jekyll Build)
 
 on:
   push:
@@ -7,30 +7,33 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest # Updated to latest Ubuntu version
+    runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
 
     steps:
-      - uses: actions/checkout@v4 # Updated checkout to v4
+      - uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3' # Updated to Ruby 3.3 or greater
+          ruby-version: '3.3'
 
-      - name: Install Ruby dependencies
-        run: bundle install
+      - name: Install Ruby dependencies (Custom Jekyll Gems)
+        run: |
+          gem install bundler
+          bundle config set --local path vendor/bundle
+          bundle install
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4 # Updated node setup to v4
+        uses: actions/setup-node@v4
         with:
           node-version: '20.10'
 
       - name: Install Node.js dependencies
         run: npm install
 
-      - name: Build website
+      - name: Build website (Custom Jekyll)
         run: bundle exec jekyll build
 
       - name: Deploy on gh-pages
