@@ -35,7 +35,7 @@ jobs:
           gem install bundler
           bundle install
       - name: Build Jekyll Site
-        run: jekyll build
+        run: bundle exec jekyll build
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
         with:
