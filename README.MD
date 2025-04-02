@@ -2,42 +2,57 @@
 
 This repository is a very, very simple website for a Foundation event. It runs on Github pages after creation via an action. To develop use the instructions below. 
 
+It is currently configured for a single homepage, split into components via the _includes folder. The text content is controlled by markdown files. Once it gets more complex, more instructions will be added. 
+
+## Donation form
+
+The donation form is not yet configured to work as this needs to be sent via a third party as 
+an embeddable piece of code. 
+
+## Who asked for this site
+
+Grace Green in March 2025. This has been built for low tech burden and uses Jekyll and Github actions to deploy to Github pages for free. 
+
+## Domain name
+
+This is configured in a CNAME file in the root of the site and will have multiple other domains redirected to it. 
+
 ## Setting Up and Running the Jekyll Site
 
 ### Prerequisites
 1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
 2. Install [Node.js](https://nodejs.org/) and npm (Node Package Manager).
 3. Install [Bundler](https://bundler.io/):  
-    ```bash
-    gem install bundler
-    ```
+  ```bash
+  gem install bundler
+  ```
 4. Install [Jekyll](https://jekyllrb.com/):  
-    ```bash
-    gem install jekyll
-    ```
+  ```bash
+  gem install jekyll
+  ```
 
 ### Installation
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/westminsterschoolit/usa-foundation.git
-    cd usa-foundation
-    ```
+  ```bash
+  git clone https://github.com/westminsterschoolit/usa-foundation.git
+  cd usa-foundation
+  ```
 
 2. Install Ruby dependencies:
-    ```bash
-    bundle install
-    ```
+  ```bash
+  bundle install
+  ```
 
 3. Install Node.js dependencies:
-    ```bash
-    npm install
-    ```
+  ```bash
+  npm install
+  ```
 
 ### Running the Site
 1. Build and serve the site locally:
-    ```bash
-    bundle exec jekyll serve
-    ```
+  ```bash
+  bundle exec jekyll serve
+  ```
 
 2. Open your browser and navigate to `http://localhost:4000`.
 
@@ -58,3 +73,94 @@ This repository is a very, very simple website for a Foundation event. It runs o
   npm update
   ```
 - For troubleshooting, refer to the [Jekyll documentation](https://jekyllrb.com/docs/).
+
+### Configuring Vanilla-CookieConsent
+
+To add a cookie consent banner using [Vanilla CookieConsent](https://github.com/orestbida/cookieconsent):
+
+1. **Install Vanilla-CookieConsent**  
+   Add the library to your project using npm:
+   ```bash
+   npm install vanilla-cookieconsent
+   ```
+
+2. **Import CSS via Sass**  
+   Include the CookieConsent styles in your Sass file:
+   ```scss
+   @import 'node_modules/vanilla-cookieconsent/src/cookieconsent.scss';
+   ```
+
+3. **Initialize CookieConsent**  
+   Add the following JavaScript code to initialize the cookie consent banner:
+   ```javascript
+   window.addEventListener('load', function () {
+    const cc = initCookieConsent();
+
+    cc.run({
+     current_lang: 'en',
+     autoclear_cookies: true,
+     page_scripts: true,
+     gui_options: {
+       consent_modal: {
+        layout: 'box',
+        position: 'bottom',
+        transition: 'slide'
+       },
+       settings_modal: {
+        layout: 'box',
+        transition: 'slide'
+       }
+     },
+     languages: {
+       en: {
+        consent_modal: {
+         title: 'We use cookies!',
+         description: 'This website uses cookies to ensure you get the best experience on our website. <button type="button" data-cc="c-settings">Learn more</button>',
+         primary_btn: {
+           text: 'Accept all',
+           role: 'accept_all'
+         },
+         secondary_btn: {
+           text: 'Reject all',
+           role: 'accept_necessary'
+         }
+        },
+        settings_modal: {
+         title: 'Cookie settings',
+         save_settings_btn: 'Save settings',
+         accept_all_btn: 'Accept all',
+         reject_all_btn: 'Reject all',
+         blocks: [
+           {
+            title: 'Necessary Cookies',
+            description: 'These cookies are essential for the website to function properly.',
+            toggle: {
+             value: 'necessary',
+             enabled: true,
+             readonly: true
+            }
+           },
+           {
+            title: 'Analytics Cookies',
+            description: 'These cookies help us understand how visitors interact with our website.',
+            toggle: {
+             value: 'analytics',
+             enabled: false,
+             readonly: false
+            }
+           }
+         ]
+        }
+       }
+     }
+    });
+   });
+   ```
+
+4. **Customize as Needed**  
+   Modify the configuration to match your website's requirements, such as language, cookie categories, and banner styles.
+
+5. **Test the Implementation**  
+   Open your site locally and verify that the cookie consent banner appears and functions as expected.
+
+For more details, refer to the [Vanilla CookieConsent documentation](https://github.com/orestbida/cookieconsent#readme).
