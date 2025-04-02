@@ -10,39 +10,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Checkout
-        uses: actions/checkout@v3 # Use v3 for better compatibility
-
+        uses: actions/checkout@v3 # Updated to v3 for better compatibility
       - name: Set up Node.js v20
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
       - name: Install NPM dependencies
         run: npm install
-
       - name: Set up Ruby and Gems
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4' # Or your desired ruby version
+          ruby-version: '3.0' # or your required Ruby version
           bundler-cache: true
-
       - name: Install Jekyll and dependencies
         run: |
-          gem install jekyll -v 4.3.4 # Or your desired jekyll version
+          gem install jekyll -v 4.3.4 # or your jekyll version
           gem install bundler
           bundle install
-
       - name: Build Jekyll Site
-        run: jekyll build -d docs # Build to the 'docs' directory
-
+        run: jekyll build
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
         with:
           artifact-name: github-pages
-          path: docs
-
+          path: _site
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: github-pages
-          path: docs
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
