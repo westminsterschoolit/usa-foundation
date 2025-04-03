@@ -233,3 +233,5 @@ For more details, refer to the [Vanilla CookieConsent documentation](https://git
 - [ ] Add and finalize contact details section.
 - [ ] Finalize the footer design and content.
 - [ ] Repoint the domain name to the new site.
+- [ ] Configure analytics.
+- [ ] Configure tracking.
