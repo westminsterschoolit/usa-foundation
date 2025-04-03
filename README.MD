@@ -27,7 +27,7 @@ Grace Green in March 2025. This has been built for low tech burden and uses Jeky
 ## Domain name
 
 This is configured in a CNAME file in the root of the site and will have multiple other domains redirected to it. The domain will point to: westminsterschoolfoundationus.org
-The CNAME file should just contain a single line with the domain name, nothing else.
+The CNAME file should just contain a single line with the domain name, nothing else. When ready to go, rename CNAME.tmp to CNAME and the website will rebuild and resolve. The SSL certificate will be provided by Github. 
 
 ## Setting Up and Running the Jekyll Site
 
