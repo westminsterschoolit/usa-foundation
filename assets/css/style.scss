@@ -3,25 +3,6 @@
 @import "bootstrap/scss/bootstrap";
 @import "@fontsource/roboto"; // Defaults to weight 400
 
-/*! purgecss ignore */
-@import "vanilla-cookieconsent/dist/cookieconsent"; // Import the cookie consent CSS
-#cc-main {
-  /** Change font **/
-
-  /** Change button primary color to black **/
-  --cc-btn-primary-bg: #e2629e;
-  --cc-btn-primary-border-color: #e2629e;
-  --cc-btn-primary-hover-bg: #e2629e;
-  --cc-btn-primary-hover-border-color: #e2629e;
-
-  /** Also make toggles the same color as the button **/
-  --cc-toggle-on-bg: var(--cc-btn-primary-bg);
-
-  /** Make the buttons a bit rounder **/
-  --cc-btn-border-radius: 10px;
-}
-/*!purgecss end ignore */
-
 /* Define your global CSS variables, typically at the top of your CSS file or in :root */
 :root {
   /* Define the variable for the background image URL */
