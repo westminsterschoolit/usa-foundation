@@ -226,3 +226,10 @@ To add a cookie consent banner using [Vanilla CookieConsent](https://github.com/
    Open your site locally and verify that the cookie consent banner appears and functions as expected.
 
 For more details, refer to the [Vanilla CookieConsent documentation](https://github.com/orestbida/cookieconsent#readme).
+
+## To do list
+
+- [ ] Embed JavaScript form for donations.
+- [ ] Add and finalize contact details section.
+- [ ] Finalize the footer design and content.
+- [ ] Repoint the domain name to the new site.
