@@ -4,6 +4,17 @@ This repository is a very, very simple website for a Foundation event. It runs o
 
 It is currently configured for a single homepage, split into components via the _includes folder. The text content is controlled by markdown files. Once it gets more complex, more instructions will be added. 
 
+## Simple text content
+
+The small fragments of text are written in simple markdown files located in _includes/markdown 
+For a quick introduction to Markdown syntax, refer to the [Markdown Guide](https://www.markdownguide.org/basic-syntax/). You can edit these easily if you have an account on Github and are added to this organisation. 
+
+## Images
+
+All images are located in the assets/images folder - very simple. These have been optimised. 
+
+To optimize images for the website, you can use [Squoosh](https://squoosh.app/), a free and easy-to-use online tool. Squoosh allows you to compress images without significant loss of quality, reducing file sizes and improving page load times. Simply upload your image, adjust the compression settings, and download the optimized version to replace the original file.
+
 ## Donation form
 
 The donation form is not yet configured to work as this needs to be sent via a third party as 

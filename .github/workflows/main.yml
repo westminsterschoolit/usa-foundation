@@ -16,8 +16,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+   
     steps:
+      - name: Set ENV variable
+        run: echo "JEKYLL_ENV=production" >> $GITHUB_ENV
+        
       - name: Checkout code
         uses: actions/checkout@v2
 
