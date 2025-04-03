@@ -102,6 +102,7 @@ When changes are pushed to the `main` branch, a GitHub Action is triggered to re
   The workflow:
   - Installs dependencies.
   - Builds the Jekyll site.
+  - Purges unused CSS
   - Deploys the generated `_site` directory to the `gh-pages` branch.
 
 4. **Live Site**  

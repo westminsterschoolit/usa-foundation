@@ -2,7 +2,10 @@
 ---
 @import "bootstrap/scss/bootstrap";
 @import "@fontsource/roboto"; // Defaults to weight 400
+
+/* purgecss ignore */
 @import "vanilla-cookieconsent/dist/cookieconsent"; // Import the cookie consent CSS
+/* purgecss end ignore */
 
 /* Define your global CSS variables, typically at the top of your CSS file or in :root */
 :root {
