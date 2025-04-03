@@ -86,6 +86,32 @@ The CNAME file should just contain a single line with the domain name, nothing e
   ```
 - For troubleshooting, refer to the [Jekyll documentation](https://jekyllrb.com/docs/).
 
+### Using PurgeCSS in the Production Build
+
+To optimize the CSS for the production build and reduce bandwidth usage, this project uses [PurgeCSS](https://purgecss.com/). PurgeCSS removes unused CSS by analyzing the content of your HTML, JavaScript, and Markdown files, ensuring that only the styles actually used on the site are included in the final CSS file.
+
+#### How It Works
+1. **Scan Content Files**  
+  PurgeCSS scans the project's HTML, JavaScript, and Markdown files to identify the CSS classes and styles in use.
+
+2. **Remove Unused CSS**  
+  Any CSS rules not referenced in the content files are removed from the final CSS file.
+
+3. **Minify CSS**  
+  The resulting CSS is minified to further reduce file size.
+
+#### Integration in the Build Process
+PurgeCSS is integrated into the production build process via the GitHub Actions workflow. During the build:
+- The CSS files are processed by PurgeCSS to remove unused styles.
+- The optimized CSS is included in the `_site` directory for deployment.
+
+#### Benefits
+- **Reduced File Size**: Smaller CSS files lead to faster page load times.
+- **Improved Performance**: Less CSS means reduced bandwidth usage and better performance, especially for users on slower connections.
+- **Cleaner Code**: Ensures that only necessary styles are deployed.
+
+For more information on configuring PurgeCSS, refer to the [PurgeCSS documentation](https://purgecss.com/).
+
 ### Continuous Deployment with GitHub Actions
 
 This repository is configured to use GitHub Actions for continuous deployment. There is no server architecture to maintain for the School. 
