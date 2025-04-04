@@ -20,6 +20,97 @@ To optimize images for the website, you can use [Squoosh](https://squoosh.app/),
 The donation form is not yet configured to work as this needs to be sent via a third party as 
 an embeddable piece of code. 
 
+### Using Bootstrap 5 with Sass
+
+This project uses [Bootstrap 5](https://getbootstrap.com/) for responsive design and UI components,
+this is a very widely used framework and easily adapted. Bootstrap is installed via npm and imported as Sass to allow for customization and optimization.
+
+#### Installation
+1. Install Bootstrap via npm:
+  ```bash
+  npm install bootstrap
+  ```
+
+
+#### Importing Bootstrap as Sass
+To customize Bootstrap, import its Sass source files into your main Sass file. This allows you to override default variables and include only the components you need.
+
+1. **Create a Sass File**  
+  Create a `.scss` file (e.g., `main.scss`) in your project.
+
+2. **Import Bootstrap**  
+  Import Bootstrap's variables, mixins, and components in your Sass file - the Jekyll 
+  system has been set up to look at _sass and node_modules for imports. 
+
+  ```scss
+  // Import Bootstrap variables and functions
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/mixins';
+
+  // Customize Bootstrap variables (optional)
+  $primary: #007bff;
+  $font-family-sans-serif: 'Arial', sans-serif;
+
+  // Import Bootstrap components
+  @import '/bootstrap/scss/bootstrap';
+  ```
+
+3. **Compile Sass**  
+  Use Sass to compile the `.scss` file into a `.css` file:
+  ```bash
+  sass main.scss assets/css/main.css
+  ```
+
+#### Benefits of Using Bootstrap with Sass
+- **Customization**: Modify Bootstrap's default styles by overriding its variables.
+- **Reduced File Size**: Import only the components you need to optimize the CSS output.
+- **Consistency**: Use Bootstrap's utility classes and grid system for consistent design.
+
+#### Using Bootstrap Components
+Once compiled, include the generated CSS file in your HTML and use Bootstrap's classes to style your content. For example:
+```html
+<div class="container">
+  <h1 class="text-primary">Welcome to the Site</h1>
+  <button class="btn btn-primary">Click Me</button>
+</div>
+```
+
+For more details, refer to the [Bootstrap Sass documentation](https://getbootstrap.com/docs/5.0/customize/sass/).
+
+### Using Roboto Font Installed via npm
+
+Roboto is a popular sans-serif font that can be easily added to your project using npm. Follow the steps below to integrate it into your Jekyll site.
+
+#### Installation
+1. Install the Roboto font package via npm:
+  ```bash
+  npm install typeface-roboto
+  ```
+
+2. The font files will be added to the `node_modules/typeface-roboto` directory.
+
+#### Importing the Font
+To use the Roboto font in your project, import it into your main Sass file:
+```scss
+@import 'typeface-roboto';
+```
+
+#### Applying the Font
+Once imported, you can apply the Roboto font to your site by updating your CSS or Sass styles. For example:
+```scss
+body {
+  font-family: 'Roboto', sans-serif;
+}
+```
+
+#### Benefits of Using Roboto
+- **Modern Design**: Roboto is widely used for its clean and professional appearance.
+- **Readability**: Designed for optimal readability on screens.
+- **Easy Integration**: Available as an npm package for seamless integration.
+
+For more details, refer to the [Roboto documentation](https://fonts.google.com/specimen/Roboto).
+
 ## Who asked for this site
 
 Grace Green in March 2025. This has been built for low tech burden and uses Jekyll and Github actions to deploy to Github pages for free. 
@@ -235,3 +326,17 @@ For more details, refer to the [Vanilla CookieConsent documentation](https://git
 - [ ] Repoint the domain name to the new site.
 - [ ] Configure analytics.
 - [ ] Configure tracking.
+
+## License
+
+This project is licensed under the MIT terms specified in the `LICENSE` file located in the root of the repository. Please review the file for details on usage, distribution, and contributions.
+
+## Authors
+
+This project was created and maintained by the Westminster School Digital and IT team. Contributions and feedback are welcome to improve the site further.
+
+### Contributors
+- **Daniel Pett** - Initial setup and development.
+- **Grace Green** - Project request and content guidance.
+
+If you'd like to contribute, please submit a pull request or open an issue in the repository.
