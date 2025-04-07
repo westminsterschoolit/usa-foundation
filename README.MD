@@ -182,6 +182,7 @@ The CNAME file should just contain a single line with the domain name, nothing e
 To optimize the CSS for the production build and reduce bandwidth usage, this project uses [PurgeCSS](https://purgecss.com/). PurgeCSS removes unused CSS by analyzing the content of your HTML, JavaScript, and Markdown files, ensuring that only the styles actually used on the site are included in the final CSS file.
 
 #### How It Works
+
 1. **Scan Content Files**  
   PurgeCSS scans the project's HTML, JavaScript, and Markdown files to identify the CSS classes and styles in use.
 
@@ -318,6 +319,59 @@ To add a cookie consent banner using [Vanilla CookieConsent](https://github.com/
 
 For more details, refer to the [Vanilla CookieConsent documentation](https://github.com/orestbida/cookieconsent#readme).
 
+### Color Palette
+
+The color palette for this project is defined in the `style.scss` file. These colors are used throughout the site to maintain a consistent design and branding.
+
+#### Primary Colors
+```scss
+$primary-color: #007bff; // Blue
+$secondary-color: #6c757d; // Gray
+$success-color: #28a745; // Green
+$danger-color: #dc3545; // Red
+$warning-color: #ffc107; // Yellow
+$info-color: #17a2b8; // Teal
+$light-color: #f8f9fa; // Light Gray
+$dark-color: #343a40; // Dark Gray
+```
+
+#### Neutral Colors
+```scss
+$white: #ffffff;
+$black: #000000;
+$gray-light: #e9ecef;
+$gray-dark: #495057;
+```
+
+#### Custom Colors
+```scss
+$brand-primary: #003366; // Westminster Blue
+$brand-secondary: #ffcc00; // Westminster Yellow
+$background-color: #f4f4f4; // Light Background
+$text-color: #212529; // Default Text Color
+```
+
+#### Usage
+These variables can be used in your Sass files to apply consistent colors across the site. For example:
+```scss
+body {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.navbar {
+  background-color: $brand-primary;
+  color: $white;
+}
+```
+
+For more details on customizing the color palette, refer to the `style.scss` file in the `_sass` directory.
+
 ## To do list
 
 - [ ] Embed JavaScript form for donations.
@@ -326,6 +380,13 @@ For more details, refer to the [Vanilla CookieConsent documentation](https://git
 - [ ] Repoint the domain name to the new site.
 - [ ] Configure analytics.
 - [ ] Configure tracking.
+
+## Pagespeed 
+
+The pagespeed for this single page site is pretty good, the accessibility level is let down by 4% by 
+the pink background colour and text not having brilliant contrast. The page weight is less than 1MB prior to the Stripe embed scripts which will be deployed soon. 
+
+![A screenshot of page speed scores from lighthouse](/assets/images/page-speed.png)
 
 ## License
 
