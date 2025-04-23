@@ -3,8 +3,8 @@ Westminster is committed to widening access to young people who show exceptional
 You can help with a gift towards:
 
 * Bursaries
-* Hardship
-* Westminster’s Greatest Needs
+* Estate Improvements
+* Greatest Needs (unrestricted)
 
 Thank you for supporting The Westminster School Foundation.
 
