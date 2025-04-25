@@ -3,3 +3,5 @@ The Westminster School Foundation promotes and supports the work of Westminster 
 The Westminster School Foundation is a US 501(c)(3) non-profit organization (registered number 99-0369928). All donations are tax deductible to the extent allowed by law.
 
 The Board of Directors of The Westminster School Foundation are proud to continue supporting the mission of Westminster School.
+
+Luke would like a [pay rise](https://hello.com).
