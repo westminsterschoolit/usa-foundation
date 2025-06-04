@@ -1,4 +1,4 @@
-* David Brigstocke (President)
+* David Brigstocke (President,Treasurer)
 * Kristen Gallagher (Secretary)
 * Ali Khanbhai
 * Victoria Leavitt
