@@ -1,7 +1,7 @@
-* David Brigstocke (President,Treasurer)
+* Victoria Leavitt (President)
+* David Brigstocke (Treasurer)
 * Kristen Gallagher (Secretary)
 * Ali Khanbhai
-* Victoria Leavitt
 * Marcus Oliver
 * James Sinclair
 * Alexis Vassilakas
